@@ -28,16 +28,20 @@ function App() {
  },[])
  
  const displayedUsers=users.filter((user)=>{
-   return user.name.toLowerCase()
+   return user.name.toLowerCase().includes(searchTerm.toLocaleLowerCase());
  });
+
+ function handleAddUsers(newUser){
+   setUsers([...users,newUser]);
+ }
   return (
     <>
   <Navbar />
 
- <Search />
+ <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
   <Users users={displayedUsers}/>
 
-<NewUserForm />
+<NewUserForm  />
 
   <Home />
  
