@@ -1,6 +1,5 @@
 
 import { responsiveFontSizes } from '@material-ui/core';
-import {Route,Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Users from './components/Users';
 import NewUserForm from './components/NewUserForm';
@@ -8,6 +7,7 @@ import DisplayUser from './components/DisplayUser';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
 import { useState ,useEffect} from 'react';
+import { Route,Switch } from 'react-router-dom';
 
 const usersApi="http://localhost:9292/users"
 function App() {
@@ -37,17 +37,21 @@ function App() {
   return (
     <>
   <Navbar />
-
- <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
+<Switch>
+  <Route path="/users">
+  <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
   <Users users={displayedUsers}/>
-
-<NewUserForm  />
-
+ </Route>
+ <Route path="/addUser">
+<NewUserForm onAddUser={handleAddUsers} />
+</Route>
+<Route path="/">
   <Home />
- 
+  </Route>
+  <Route path="/users/:id">
   <DisplayUser />
-  
- 
+  </Route>
+  </Switch>
     
 
 
