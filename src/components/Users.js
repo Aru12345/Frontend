@@ -1,4 +1,18 @@
+import UserCard from "./UserCard";
+import React,{useState,useEffect} from "react";
+
 function Users({fullUsers, usersApi}){
+    const [filteredUsers, setFilteredUsers] = useState([])
+
+    useEffect(() => {
+     if(filteredUsers.length < 1){
+       fetch(usersApi)
+      .then(res => res.json())
+      .then(usersData => {
+        setFilteredUsers(usersData)
+      })
+     }
+     }, [])
     return (
         <>
         <div>
@@ -7,6 +21,7 @@ function Users({fullUsers, usersApi}){
         <label>Search by name :  </label>
         <input type="text" name="search" />
         </div>
+       {filteredUsers.map(user => <UserCard key={user.id} user={user}/>)}
         </>
     )
 }

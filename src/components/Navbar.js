@@ -7,7 +7,7 @@ return (
     <>
      <h1>Shades of Fashion</h1>
      <navbar>
-       
+    <h2>Navbar</h2>
           Find User
      
         
