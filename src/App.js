@@ -6,18 +6,36 @@ import Users from './components/Users';
 import NewUserForm from './components/NewUserForm';
 import DisplayUser from './components/DisplayUser';
 import Navbar from './components/Navbar';
+import Search from './components/Search';
+import { useState ,useEffect} from 'react';
 
 const usersApi="http://localhost:9292/users"
 function App() {
  
+  const[users,setUsers]=useState([]);
+  const[searchTerm,setSearchTerm]=useState("");
+
+  useEffect(() => {
+    document.title = "Shades of Fashion"
+ }, []);
   
+ useEffect(()=>{
+    fetch("http://localhost:9292/users")
+    .then(res=>res.json())
+    .then(userData=>{
+      setUsers(userData)
+    })
+ },[])
  
+ const displayedUsers=users.filter((user)=>{
+   return user.name.toLowerCase()
+ });
   return (
     <>
   <Navbar />
 
- 
-  <Users />
+ <Search />
+  <Users users={displayedUsers}/>
 
 <NewUserForm />
 
