@@ -15,8 +15,8 @@ justify-content: center;
   height: 100%;
 & img{
     width:730px;
-    height:580px;
-    padding:3% 0% 0% 0%;
+    height:560px;
+    padding:3% 1% 0% 0%;
     margin:2%;
 }
 & h3{
