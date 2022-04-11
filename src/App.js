@@ -1,5 +1,9 @@
 import { responsiveFontSizes } from '@material-ui/core';
+<<<<<<< HEAD
 import "./App.css";
+=======
+
+>>>>>>> 25949201e2018a697f2992164de085f56dd3baf3
 import Home from './components/Home';
 import Users from './components/Users';
 import NewUserForm from './components/NewUserForm';
@@ -9,7 +13,10 @@ import Search from './components/Search';
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
 
+<<<<<<< HEAD
 import styled from "styled-components";
+=======
+>>>>>>> 25949201e2018a697f2992164de085f56dd3baf3
 
 const usersApi="http://localhost:9292/users"
 function App() {
