@@ -54,7 +54,7 @@ min-width: 930px;
 align-items:center;
 align-self: flex-end;
 & h1{
-      font-size:350%;
+      font-size:370%;
     }
     
 `
