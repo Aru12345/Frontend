@@ -1,5 +1,5 @@
-
 import { responsiveFontSizes } from '@material-ui/core';
+import "./App.css";
 import Home from './components/Home';
 import Users from './components/Users';
 import NewUserForm from './components/NewUserForm';
@@ -8,6 +8,8 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
+
+import styled from "styled-components";
 
 const usersApi="http://localhost:9292/users"
 function App() {
@@ -35,7 +37,7 @@ function App() {
    setUsers([...users,newUser]);
  }
   return (
-    <>
+    <AppContainer>
   <Navbar />
 <Switch>
   <Route path="/users">
@@ -55,9 +57,13 @@ function App() {
     
 
 
-    </>
+    </AppContainer>
   )
   
 }
 
 export default App;
+const AppContainer =styled.div`
+background:#da3287
+
+`

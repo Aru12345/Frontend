@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import {Button} from '@material-ui/core';
 function NewUserForm({onAddUser}){
     const[formData,setFormData]=useState({
         image:'',
@@ -48,9 +49,11 @@ function NewUserForm({onAddUser}){
            <input type="text" name="about" aria-label="about" value={formData.about}  onChange={handleChange}></input>
            
           
-           <input class="submit" type="submit" />
-        
-           
+          
+          
+          <Button variant="contained" color="success" class="submit" type="submit">
+         Submit
+</Button>
       </form>
         </>
     )
