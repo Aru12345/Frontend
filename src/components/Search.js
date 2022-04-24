@@ -4,7 +4,7 @@ function Search({searchTerm,onSearchChange}){
     return(
         <SearchContainer>
       
-        <label htmlFor="search"><h2>Search:</h2></label>
+        <label htmlFor="search"><h2> Search  User:</h2></label>
         <input
           type="text"
           id="search"
@@ -20,19 +20,23 @@ export default Search;
 const SearchContainer=styled.div`
 
 & h2{
+  margin:1%;
+  
   font-family:monospace;
   font-size:230%;
   color:white;
-  margin:1%
+  min-width: 30px;
+  float:left;
 }
 & input{
   border-radius: 5px;
-    height: 20px;
-    width: 80%;
+    height: 23px;
+    width: 75%;
     padding: 2px 20px 2px 30px;
     outline: 0;
     background-color: #f5f5f5;
-    margin:0.1%
+    margin:1.5%;
+    float:right
 }
 
 `
