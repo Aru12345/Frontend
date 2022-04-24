@@ -30,7 +30,7 @@ const SearchContainer=styled.div`
 }
 & input{
   border-radius: 5px;
-    height: 23px;
+    height: 24px;
     width: 75%;
     padding: 2px 20px 2px 30px;
     outline: 0;
