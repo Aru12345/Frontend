@@ -5,8 +5,9 @@ function UserCard({user}){
     return(
         <UserContainer>
         <img src={image} />
-        <h2>Name:{name}</h2>
-        <p>About:{about}</p>
+        <h2>{name}</h2>
+        <h4>~About~</h4>
+        <h3>{about}</h3>
 
         </UserContainer>
     )
@@ -18,16 +19,17 @@ display: inline-block;
 margin: 32px;
 text-align: center;
 border-radius:7px;
-width: 410px;
-height: 400px;
+width: 400px;
+height: 480px;
 margin:20px;
 padding:15px;
 color:white;
 background:#ff69b4;
 overflow-x:auto;
 & img{
+    margin-top:9%;
     width:290px;
-    height:280px;
+    height:300px;
 }
 
 `
