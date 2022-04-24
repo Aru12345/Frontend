@@ -30,13 +30,14 @@ const SearchContainer=styled.div`
 }
 & input{
   border-radius: 5px;
-    height: 24px;
+    height: 27px;
     width: 75%;
     padding: 2px 20px 2px 30px;
     outline: 0;
     background-color: #f5f5f5;
     margin:1.5%;
-    float:right
+    float:right;
+    border: none;
 }
 
 `
