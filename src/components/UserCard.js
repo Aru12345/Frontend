@@ -16,20 +16,24 @@ export default UserCard;
 
 const UserContainer=styled.div`
 display: inline-block;
-margin: 32px;
+margin-left:8%;
+margin-bottom:2%;
+margin-top:3%;
 text-align: center;
 border-radius:7px;
-width: 400px;
-height: 480px;
-margin:20px;
+width: 300px;
+height: 500px;
+
 padding:15px;
 color:white;
 background:#ff69b4;
 overflow-x:auto;
 & img{
+    box-shadow: 5px 6px #da3287;
+    border-radius:5px;
     margin-top:9%;
-    width:290px;
-    height:300px;
+    width:250px;
+    height:320px;
 }
 
 `
