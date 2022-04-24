@@ -4,11 +4,11 @@ function Search({searchTerm,onSearchChange}){
     return(
         <SearchContainer>
       
-        <label htmlFor="search"><h2> Search  User:</h2></label>
+        <label htmlFor="search"><h2>Search User:</h2></label>
         <input
           type="text"
           id="search"
-          placeholder="Search a user"
+          
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
         />
