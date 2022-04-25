@@ -1,6 +1,8 @@
 import React,{useState} from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 function NewUserForm({onAddUser}){
+  const history = useHistory()
     const[formData,setFormData]=useState({
         image:'',
         name:'',
@@ -30,7 +32,7 @@ function NewUserForm({onAddUser}){
         })
           .then((r) => r.json())
           .then(onAddUser);
-        
+          history.push(`/users/`)
     
         
     
@@ -89,7 +91,14 @@ margin:auto;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-size:70%;
+  font-size:90%;
+  
+}
+
+& input[type=submit]:hover {
+
+  background-color: #f75394;
+ 
   
 }
 
