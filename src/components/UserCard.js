@@ -26,7 +26,7 @@ height: 500px;
 
 padding:15px;
 color:white;
-background:#da3287;
+background:#f75394;
 overflow-x:auto;
 & img{
     box-shadow: 5px 6px #da3287;

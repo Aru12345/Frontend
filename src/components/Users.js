@@ -19,5 +19,5 @@ function Users({users}){
 export default Users;
 
 const UserMain=styled.div`
-background-color:#ff69b4;
+background-color:#da3287;
 `
