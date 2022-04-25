@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import {Button} from '@material-ui/core';
+import styled from "styled-components";
 function NewUserForm({onAddUser}){
     const[formData,setFormData]=useState({
         image:'',
@@ -36,9 +36,11 @@ function NewUserForm({onAddUser}){
     
       }
     return (
-        <>
+        <FormContainer>
          <form onSubmit={handleSubmit}>
-           <h3>Create Your Profile</h3>
+           <h1>Create Your Profile</h1>
+        
+           <h2>Join Shades of Fashion today.</h2>
            <label>Profile Picture:</label>
            <input type="text" name="image" aria-label="image" value={formData.image} onChange={handleChange}  ></input>
            
@@ -51,11 +53,44 @@ function NewUserForm({onAddUser}){
           
           
           
-          <Button variant="contained" color="success" class="submit" type="submit">
-         Submit
-</Button>
+           <input class="submit" type="submit" />
+        
+
       </form>
-        </>
+        </FormContainer>
     )
 }
 export  default NewUserForm;
+
+const FormContainer=styled.div`
+color:white;
+font-size:120%;
+width:75%;
+border-radius:5px;
+margin:auto;
+
+
+& input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+& input[type=submit] {
+  width: 100%;
+  background-color:#ff69b4;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size:70%;
+  
+}
+
+`
