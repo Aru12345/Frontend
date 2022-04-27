@@ -4,10 +4,9 @@ import "./App.css";
 import Home from './components/Home';
 import Users from './components/Users';
 import NewUserForm from './components/NewUserForm';
-import DisplayUser from './components/DisplayUser';
+
 import Navbar from './components/Navbar';
 import Search from './components/Search';
-import UserDetail from "./components/UserDetail";
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
 
@@ -45,16 +44,7 @@ function App() {
    setUsers([...users,newUser]);
  }
 
- function handleAddReview(updatedUser){
-  fetch(`${usersApi}/${updatedUser.id}`, {
-    method: 'PUT',
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(updatedUser)
-  })
 
- }
   return (
     <AppContainer>
   <Navbar />
@@ -69,10 +59,7 @@ function App() {
 <Route path="/">
   <Home />
   </Route>
-  <Route path="users/:id">
-    <DisplayUser onAddReview={handleAddReview} usersApi={usersApi}/>
-  </Route>
-
+  
 
   </Switch>
     
