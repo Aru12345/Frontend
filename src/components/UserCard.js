@@ -1,4 +1,5 @@
 import userEvent from "@testing-library/user-event";
+import { Route } from "react-router-dom";
 import styled from "styled-components";
 function UserCard({user}){
     const{id,image,name,about}=user;
@@ -10,7 +11,9 @@ function UserCard({user}){
         <h3>{about}</h3>
 
         </UserContainer>
+   
     )
+
 }
 export default UserCard;
 

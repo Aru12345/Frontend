@@ -7,8 +7,10 @@ import NewUserForm from './components/NewUserForm';
 import DisplayUser from './components/DisplayUser';
 import Navbar from './components/Navbar';
 import Search from './components/Search';
+import UserDetail from "./components/UserDetail";
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
+
 
 import styled from "styled-components";
 
@@ -16,6 +18,7 @@ const usersApi="http://localhost:9292/users"
 function App() {
  
   const[users,setUsers]=useState([]);
+  
   const[searchTerm,setSearchTerm]=useState("");
 
   useEffect(() => {
@@ -29,13 +32,28 @@ function App() {
       setUsers(userData)
     })
  },[])
+
+ 
  
  const displayedUsers=users.filter((user)=>{
    return user.name.toLowerCase().includes(searchTerm.toLocaleLowerCase());
  });
 
+
+
  function handleAddUsers(newUser){
    setUsers([...users,newUser]);
+ }
+
+ function handleAddReview(updatedUser){
+  fetch(`${usersApi}/${updatedUser.id}`, {
+    method: 'PUT',
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(updatedUser)
+  })
+
  }
   return (
     <AppContainer>
@@ -51,9 +69,11 @@ function App() {
 <Route path="/">
   <Home />
   </Route>
-  <Route path="/users/:id">
-  <DisplayUser />
+  <Route path="users/:id">
+    <DisplayUser onAddReview={handleAddReview} usersApi={usersApi}/>
   </Route>
+
+
   </Switch>
     
 
