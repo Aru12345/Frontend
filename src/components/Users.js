@@ -13,7 +13,7 @@ function Users({users}){
        
        {users.map((user)=>{
          return (
-           <UserCard key={user.id} user={user}/> 
+           <UserCard key={user.id} id={user.id} user={user}/> 
          );
        })}
        

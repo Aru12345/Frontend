@@ -1,17 +1,19 @@
 import userEvent from "@testing-library/user-event";
-import { Route } from "react-router-dom";
+import { Switch,Route } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 function UserCard({user}){
     const{id,image,name,about}=user;
     return(
+        
         <UserContainer>
         <img src={image} />
         <h2>{name}</h2>
         <h4>~About~</h4>
         <h3>{about}</h3>
-
+         <Link><button >Check out my Blog</button></Link>
         </UserContainer>
-   
+      
     )
 
 }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-function AddReviewForm({user,onAddReview,hideForm}){
-    const [formData, setFormData] = useState({
+function AddReviewForm({onAddReview}){
+    const [reviewData, setreviewData] = useState({
     
         image:'',
         product:'',
@@ -11,34 +11,62 @@ function AddReviewForm({user,onAddReview,hideForm}){
         styleNote:''
       })
 
-  function handleChange(e){
-    const newFormData = {
-      ...formData, [e.target.name]: e.target.value
-    }
-    setFormData(newFormData)
-  }
-  function handleSubmit(e){
-    e.preventDefault()
-    const itemID = member.reviewList.length + 1
-    const newItem = {...formData, id:itemID}
-    const {id, wishlist} = member
-    const newWishList = [...wishlist, newItem]
-    const updatedMember = {...member, wishlist:newWishList}
-    onAddItem  && onAddItem(updatedMember)
-    setFormData({
-      id: 0,
-      item: "",
-      price: "$",
-      url: "",
-      desc: "",
-      specs: "",
-      store: "",
-      purchased: false
-    })
-  }
+      function handleReviewChange(event){
+            setreviewData({
+                ...reviewData,
+                [event.target.name]: event.target.value,
+
+            });
+      }
+
+      function handleReviewSubmit(event) {
+        event.preventDefault();
+    
+        const newReview ={
+            ...reviewData
+        };
+    
+        fetch("http://localhost:9292/reviews", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newReview),
+        })
+          .then((r) => r.json())
+          .then(onAddReview);
+          
+        
+    
+      }
+
+
     return(
         <>
-        <h1>Add item form</h1>
+        <ReviewFormContainer>
+           <form onSubmit={handleReviewSubmit}>
+           <h2>Add Review</h2>
+           <label>Image:</label>
+           <input type="text" name="image" aria-label="image" value={reviewData.image} onChange={handleReviewChange}  ></input>
+           
+           <label>Product:</label>
+           <input type="text" name="product" aria-label="product" value={reviewData.product} onChange={handleReviewChange} ></input>
+           
+           <label>Store:</label>
+           <input type="text" name="link" aria-label="link" value={reviewData.link}  onChange={handleReviewChange}></input>
+           
+           <label>Price:</label>
+           <input type="text" name="price" aria-label="price" value={reviewData.price}  onChange={handleReviewChange}></input>
+
+           <label>Size:</label>
+           <input type="text" name="link" aria-label="link" value={reviewData.size}  onChange={handleReviewChange}></input>
+           
+           <label>StyleNote:</label>
+           <input type="text" name="styleNote" aria-label="styleNote" value={reviewData.styleNote}  onChange={handleReviewChange}></input>
+          
+           <input class="submit" type="submit" />
+            </form>
+        </ReviewFormContainer>
         </>
     )
 }

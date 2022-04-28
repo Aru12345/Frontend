@@ -9,10 +9,7 @@ import Navbar from './components/Navbar';
 import Search from './components/Search';
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
-
-
 import styled from "styled-components";
-
 const usersApi="http://localhost:9292/users"
 function App() {
  
@@ -59,7 +56,6 @@ function App() {
 <Route path="/">
   <Home />
   </Route>
-  
 
   </Switch>
     
