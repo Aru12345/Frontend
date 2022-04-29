@@ -55,7 +55,7 @@ function App() {
 },[])
 
 const displayedReviews=reviews.filter((review)=>{
-  return review.name.toLowerCase()
+  return review.name
 });
 
  function handleAddReviews(newReview){
