@@ -43,7 +43,7 @@ function AddReviewForm({onAddReview}){
 
     return(
         <>
-        <ReviewFormContainer>
+        
            <form onSubmit={handleReviewSubmit}>
            <h2>Add Review</h2>
            <label>Image:</label>
@@ -66,7 +66,7 @@ function AddReviewForm({onAddReview}){
           
            <input class="submit" type="submit" />
             </form>
-        </ReviewFormContainer>
+       
         </>
     )
 }

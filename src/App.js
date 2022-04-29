@@ -10,11 +10,13 @@ import Search from './components/Search';
 import { useState ,useEffect} from 'react';
 import { Route,Switch } from 'react-router-dom';
 import styled from "styled-components";
+import Reviews from "./components/Reviews";
+import AddReviewForm from "./components/AddReviewForm";
 const usersApi="http://localhost:9292/users"
 function App() {
  
   const[users,setUsers]=useState([]);
-  
+  const[reviews,setReviews]=useState([]);
   const[searchTerm,setSearchTerm]=useState("");
 
   useEffect(() => {
@@ -29,23 +31,50 @@ function App() {
     })
  },[])
 
+
+
  
  
  const displayedUsers=users.filter((user)=>{
    return user.name.toLowerCase().includes(searchTerm.toLocaleLowerCase());
  });
 
+ 
 
 
  function handleAddUsers(newUser){
    setUsers([...users,newUser]);
  }
 
+ useEffect(()=>{
+  fetch("http://localhost:9292/reviews")
+  .then(res=>res.json())
+  .then(reviewData=>{
+    setReviews(reviewData)
+  })
+},[])
+
+const displayedReviews=reviews.filter((review)=>{
+  return review.name.toLowerCase()
+});
+
+ function handleAddReviews(newReview){
+  setReviews([...reviews,newReview]);
+}
+
 
   return (
     <AppContainer>
   <Navbar />
 <Switch>
+<Route path="/reviews">
+    <Reviews reviews={displayedReviews}/>
+  </Route>
+  <Route path="/addReview">
+    <AddReviewForm onAddReview={displayedReviews}/>
+  </Route>
+
+
   <Route path="/users">
   <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
   <Users users={displayedUsers}/>
@@ -53,9 +82,12 @@ function App() {
  <Route path="/addUser">
 <NewUserForm onAddUser={handleAddUsers} />
 </Route>
+
 <Route path="/">
   <Home />
   </Route>
+
+ 
 
   </Switch>
     
