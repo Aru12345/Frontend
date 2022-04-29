@@ -11,7 +11,7 @@ function UserCard({user}){
         <h2>{name}</h2>
         <h4>~About~</h4>
         <h3>{about}</h3>
-         <Link><button >Check out my Blog</button></Link>
+         <Link to=" `/reviews/${id}`"><button >Check out my Blog</button></Link>
         </UserContainer>
       
     )

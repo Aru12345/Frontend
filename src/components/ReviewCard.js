@@ -6,6 +6,7 @@ function ReviewCard({review}){
     const{image,link,price,size,user_id}=review;
     return(
         <>
+        <h1>Card</h1>
           <img src={image} />
           <h3>{link}</h3>
           <h2>{price}</h2>

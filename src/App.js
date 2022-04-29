@@ -31,15 +31,9 @@ function App() {
     })
  },[])
 
-
-
- 
- 
  const displayedUsers=users.filter((user)=>{
    return user.name.toLowerCase().includes(searchTerm.toLocaleLowerCase());
  });
-
- 
 
 
  function handleAddUsers(newUser){
@@ -65,33 +59,31 @@ const displayedReviews=reviews.filter((review)=>{
 
   return (
     <AppContainer>
-  <Navbar />
-<Switch>
-<Route path="/reviews">
-    <Reviews reviews={displayedReviews}/>
-  </Route>
-  <Route path="/addReview">
-    <AddReviewForm onAddReview={displayedReviews}/>
-  </Route>
+     <Navbar />
+      <Switch>
 
 
-  <Route path="/users">
-  <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
-  <Users users={displayedUsers}/>
- </Route>
- <Route path="/addUser">
-<NewUserForm onAddUser={handleAddUsers} />
-</Route>
+       <Route path="/users">
+          <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
+          <Users users={displayedUsers}/>
+       </Route>
+      <Route path="/addUser">
+          <NewUserForm onAddUser={handleAddUsers} />
+      </Route>
 
-<Route path="/">
-  <Home />
-  </Route>
 
- 
+      <Route path="/reviews/:id">
+           <Reviews reviews={displayedReviews}/>
+        </Route>
+        <Route path="/addReview">
+            <AddReviewForm onAddReview={displayedReviews}/>
+        </Route>
+
+    <Route path="/">
+      <Home />
+    </Route>
 
   </Switch>
-    
-
 
     </AppContainer>
   )
