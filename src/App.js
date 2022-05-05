@@ -20,7 +20,7 @@ function App() {
   const[searchTerm,setSearchTerm]=useState("");
 
   useEffect(() => {
-    document.title = "Shades of Fashion"
+    document.title = "ABc"
  }, []);
   
  useEffect(()=>{
@@ -53,7 +53,9 @@ const displayedReviews=reviews.filter((review)=>{
 });
 
  function handleAddReviews(newReview){
+  console.log("in handle add review", newReview)
   setReviews([...reviews,newReview]);
+ 
 }
 
 
@@ -63,7 +65,7 @@ const displayedReviews=reviews.filter((review)=>{
       <Switch>
 
 
-       <Route path="/users">
+       <Route exact path="/users">
           <Search searchTerm={searchTerm} onSearchChange={setSearchTerm}/>
           <Users users={displayedUsers}/>
        </Route>
@@ -72,11 +74,11 @@ const displayedReviews=reviews.filter((review)=>{
       </Route>
 
 
-      <Route path="/reviews/:id">
-           <Reviews reviews={displayedReviews}/>
+      <Route exact path="/users/:id">
+           <Reviews reviews={reviews} users={users}/>
         </Route>
-        <Route path="/addReview">
-            <AddReviewForm onAddReview={displayedReviews}/>
+        <Route path="/users/:user_id/reviews/new">
+            <AddReviewForm onAddReview={handleAddReviews}/>
         </Route>
 
     <Route path="/">

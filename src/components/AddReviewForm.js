@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
-
-function AddReviewForm({onAddReview}){
+import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+function AddReviewForm({onAddReview,user_id}){
+  const history = useHistory()
+  const params=useParams()
+console.log(params)
     const [reviewData, setreviewData] = useState({
     
         image:'',
@@ -21,12 +25,13 @@ function AddReviewForm({onAddReview}){
 
       function handleReviewSubmit(event) {
         event.preventDefault();
-    
+     
         const newReview ={
-            ...reviewData
+            ...reviewData,
+            user_id:params.user_id
         };
     
-        fetch("http://localhost:9292/reviews", {
+        fetch(`http://localhost:9292/reviews`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -59,7 +64,7 @@ function AddReviewForm({onAddReview}){
            <input type="text" name="price" aria-label="price" value={reviewData.price}  onChange={handleReviewChange}></input>
 
            <label>Size:</label>
-           <input type="text" name="link" aria-label="link" value={reviewData.size}  onChange={handleReviewChange}></input>
+           <input type="text" name="size" aria-label="size" value={reviewData.size}  onChange={handleReviewChange}></input>
            
            <label>StyleNote:</label>
            <input type="text" name="styleNote" aria-label="styleNote" value={reviewData.styleNote}  onChange={handleReviewChange}></input>

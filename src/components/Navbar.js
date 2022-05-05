@@ -23,7 +23,7 @@ function Navbar(){
           
       return (
             <NavContainer>
-                <h1>Shades of Fashion</h1>
+                <h1>XYZ</h1>
                 
                 <NavLink to="/" exact style={linkStyles} activeStyle={{background: "#da3287"}}  >
                      Home
