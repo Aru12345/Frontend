@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-function AddReviewForm({onAddReview,user_id}){
+function AddReviewForm({onAddReview}){
+ 
   const history = useHistory()
   const params=useParams()
+  
 console.log(params)
     const [reviewData, setreviewData] = useState({
     
@@ -40,16 +42,16 @@ console.log(params)
         })
           .then((r) => r.json())
           .then(onAddReview);
-          
+          history.goBack()
+         
         
     
       }
-
-
+   
     return(
         <>
         
-           <form onSubmit={handleReviewSubmit}>
+           <form onSubmit={handleReviewSubmit} >
            <h2>Add Review</h2>
            <label>Image:</label>
            <input type="text" name="image" aria-label="image" value={reviewData.image} onChange={handleReviewChange}  ></input>

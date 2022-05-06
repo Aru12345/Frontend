@@ -58,6 +58,17 @@ const displayedReviews=reviews.filter((review)=>{
  
 }
 
+const handleDelete = (id) =>{
+  fetch(`http://localhost:9292/reviews/${review.id}`,{
+    method:'DELETE',
+    headers:{'Content-Type':'application/json'}
+  })
+  .then(res=>res.json())
+  .then(data=>{
+    setReviews(reviews.filter(r=>r.id !==id))
+  })
+}
+
 
   return (
     <AppContainer>
@@ -75,10 +86,10 @@ const displayedReviews=reviews.filter((review)=>{
 
 
       <Route exact path="/users/:id">
-           <Reviews reviews={reviews} users={users}/>
+           <Reviews reviews={reviews} users={users} handleDelete={handleDelete}/>
         </Route>
         <Route path="/users/:user_id/reviews/new">
-            <AddReviewForm onAddReview={handleAddReviews}/>
+            <AddReviewForm onAddReview={handleAddReviews}  users={displayedUsers}/>
         </Route>
 
     <Route path="/">

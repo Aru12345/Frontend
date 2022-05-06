@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { useHistory ,useParams} from "react-router-dom";
 import { Link } from "react-router-dom";
 
-function Reviews({reviews,users,user_id}){
+function Reviews({reviews,users,user_id,handleDelete}){
  
     const {id}=useParams();
    console.log(reviews)
@@ -17,7 +17,7 @@ function Reviews({reviews,users,user_id}){
         <Link to={`/users/${id}/reviews/new`}><button>Add a Review</button></Link>
        { filteredReviews.map((review)=>{
   return (
-    <ReviewCard key={review.id} id={review.id} review={review}/> 
+    <ReviewCard key={review.id} id={review.id} review={review} onDeleteReview={handleDelete}/> 
   );
 })}
        
