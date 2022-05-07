@@ -84,7 +84,7 @@ margin:auto;
 
 & input[type=submit] {
   width: 100%;
-  background-color:#ff69b4;
+  background-color:	#FF7F50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -97,7 +97,7 @@ margin:auto;
 
 & input[type=submit]:hover {
 
-  background-color: #f75394;
+  background-color:	#F08080;
  
   
 }

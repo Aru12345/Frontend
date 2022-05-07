@@ -33,5 +33,5 @@ function Users({users}){
 export default Users;
 
 const UserMain=styled.div`
-background-color:#da3287;
+background-color:#191970;
 `

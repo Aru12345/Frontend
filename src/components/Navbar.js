@@ -11,7 +11,7 @@ function Navbar(){
             width: "170px",
             padding: "15px",
             margin: "0px 22px 0px 2px",
-            background:"#f75394",
+            background:"#191970",
             textDecoration: "none",
             color: "white",
             textAlign: "center",
@@ -23,17 +23,17 @@ function Navbar(){
           
       return (
             <NavContainer>
-                <h1>XYZ</h1>
+                <h1>Voguish</h1>
                 
-                <NavLink to="/" exact style={linkStyles} activeStyle={{background: "#da3287"}}  >
+                <NavLink to="/" exact style={linkStyles} activeStyle={{background: "#0000CD"}}  >
                      Home
                </NavLink>
               
-                <NavLink to="/users" exact style={linkStyles} activeStyle={{background: "#da3287",}} >
+                <NavLink to="/users" exact style={linkStyles} activeStyle={{background: "#0000FF",}} >
                      Users
                </NavLink>
                
-               <NavLink to="/addUser" exact style={linkStyles} activeStyle={{background: "#da3287",}} >
+               <NavLink to="/addUser" exact style={linkStyles} activeStyle={{background: "#0000FF",}} >
                      Create a Profile
                </NavLink>
             </NavContainer>
@@ -45,7 +45,7 @@ const NavContainer=styled.div`
 display: flex;
 justify-content: space-between;
 padding: 20px;
-background-color:#ff69b4;
+background-color:	#FF7F50;
 color: white;
 min-width: 930px;
 align-items:center;
